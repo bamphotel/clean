@@ -148,4 +148,4 @@ PASSWORD_HASHERS = [
 
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT =  os.path.join(BASE_DIR, 'main/media/') 
-LOGIN_URL = '/admin/'
+LOGIN_URL = '/ER-admin/'
