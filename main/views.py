@@ -87,7 +87,7 @@ def contact(request):
     
   return render(request, "contact.html")
   
-@login_required(login_url="/admin/")
+@login_required(login_url="/ER-admin/")
 def sendmail(request):
   sub = subscriber.objects.all()
   announce = announcement()
