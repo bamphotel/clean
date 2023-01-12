@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}ERKATA Cleaning{% endblock title %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/review.css' %}">
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+
+<section class="home" id="home">
+<div class="container">
+<div class="grid">
+<div class="home-text">
+<h1 data-aos="fade-up" data-aos-duration="1000">need cleaning service ?</h1>
+<p  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+ At Erkata Cleaning, our cleaning services go beyond the basic services and provide you with a comprehensive clean that will reenergize your home and enhance your life. From everyday housekeeping to routine cleanings and seasonal services, our professional team members can provide you with an unrivaled experience.
+</p>
+<div class="btn-wrap" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+<a href="{% url 'about' %}" class="btn">know more</a>
+</div>
+</div>
+<div class="home-img">
+<div class="circle-wrap" data-aos="fade-right" data-aos-duration="1000">
+<div class="circle"></div>
+</div>
+<img src="{% static 'img/home-img.png' %}" alt="home-img" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+</div>
+</div>
+</div>
+</section>
+
+<div class="grid" data-aos="zoom-in" data-aos-duration="1000">
+  <section class="list">
+  <a href="{% url 'service' %}#1" pagename="#1">
+<div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/house.jpg' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+</div>
+</div>
+</a>
+<a href="{% url 'service' %}#2">
+  <div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/window.jpg' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+  
+</div>
+</div>
+</a>
+</section>
+<section class="list">
+<a href="{% url 'service' %}#3">
+<div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/bathroom.jpg' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+  
+</div>
+</div>
+</a>
+<a href="{% url 'service' %}#4">
+<div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/furniture.png' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+  
+</div>
+</div>
+</a>
+</section>
+<section class="list">
+<a href="{% url 'service' %}#3">
+<div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/bathroom.jpg' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+  
+</div>
+</div>
+</a>
+<a href="{% url 'service' %}#4">
+<div class="services-item" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<div class="img-box" id="2">
+<img src="{% static 'img/service/furniture.png' %}" alt="window">
+</div>
+<div class="content">
+  <h3>carpet cleaning</h3>
+  
+</div>
+</div>
+</a>
+</section>
+</div>
+
+ <section class="main swiper mySwiper" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+      <div class="wrapper swiper-wrapper slide-item">
+        {% for i in announces %}
+        <div class="slide swiper-slide">
+          <div class="image"></div>
+          <div class="image-data">
+            <h3 class="text">ANNOUNCEMENT</h3>
+            <h2>
+              {{i.subject}}
+            </h2>
+            <h4>{{i.message}}</h4>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="slide swiper-slide">
+          <div class="image"></div>
+          <div class="image-data">
+            <h3 class="text">Enjoy the finest coffee drinks.</h3>
+            <h2>
+              Enjoy Our Exclusive <br />
+              Cleaning 
+            </h2>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae a error repellat vel odit doloremque pariatur libero officia, distinctio quidem reprehenderit alias, sit! Dignissimos magnam iusto, perspiciatis minus? Perspiciatis, illum!</h4>
+            <a class="button" href="{% url 'about' %}" class="button">About Us</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+         <div class="image"></div>
+          <div class="image-data">
+            <h3 class="text">We really like what we do.</h3>
+            <h2>
+              All type of Cleaning with a <br />
+              Perfect price
+            </h2>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae a error repellat vel odit doloremque pariatur libero officia, distinctio quidem reprehenderit alias, sit! Dignissimos magnam iusto, perspiciatis minus? Perspiciatis, illum!</h4>
+            <a href="{% url 'service' %}" class="button">Service</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <div class="image"></div>
+          <div class="image-data">
+            <h3 class="text">Making Our coffee with lover.</h3>
+            <h2>
+              Experienced & Trained Cleaner
+            </h2>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae a error repellat vel odit doloremque pariatur libero officia, distinctio quidem reprehenderit alias, sit! Dignissimos magnam iusto, perspiciatis minus? Perspiciatis, illum!</h4>
+           <a href="{% url 'team' %}" class="button">Team</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+    
+    
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+  
+  <section class="vid">
+    <div class="section-title" data-aos="zoom-in" data-aos-duration="800">
+      <span class="title">Videos</span>
+    </div>
+    
+    <div class="container">
+    <div class="grid">
+	    <!--
+      <div class="video" data-aos="zoom-in" data-aos-duration="1000">
+        <video controls>
+  <source src="{% static 'movie.mp4' %}" type="video/mp4">
+  <source src="{% static 'movie.ogg' %}" type="video/ogg">
+  Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video" data-aos="zoom-in" data-aos-duration="1000"
+ data-aos-delay="100">
+        <video controls>
+  <source src="{% static 'movie.mp4' %}" type="video/mp4">
+  <source src="{% static 'movie.ogg' %}" type="video/ogg">
+  Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video"data-aos="zoom-in" data-aos-duration="1000"
+ data-aos-delay="200">
+        <video controls>
+  <source src="{% static 'vid/movie.mp4' %}" type="video/mp4">
+  <source src="{% static 'movie.ogg' %}" type="video/ogg">
+  Your browser does not support the video tag.
+        </video>
+      </div>
+      -->
+    <div class="iframe"data-aos="zoom-in" data-aos-duration="1000">
+  <iframe width="100%" height="100%"
+    src="https://youtube.com/embed/JtE3ocTM4t4"
+    frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+<div class="iframe" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+  <iframe width="100%" height="100%"
+    src="https://youtube.com/embed/uolNPZEnNEs"
+    frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+<div class="iframe" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+  <iframe width="100%" height="100%"
+    src="https://youtube.com/embed/MauZMUNxiH8"
+    frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+
+</div>
+</div>
+  </section>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <style>
+    .iframe {
+      grid-column: span 4;
+      
+    }
+    .iframe iframe {
+      border-radius: 10px;
+    }
+    .icon {
+      display:none;
+    }
+    .list {
+       grid-column: span 4;
+       align-items: center;
+    }
+    @media screen and (max-width:890px)
+    {
+      .video {
+       grid-column: span 12;
+      }
+      .iframe {
+      grid-column: span 12;
+      
+    }
+      .video video {
+        width: 300px;
+        margin-left: 5%;
+      }
+     .list {
+       grid-column: span 12;
+       align-items: center;
+    }  
+    }
+   .services-item {
+   grid-column: span 12;
+  border: 0;
+  box-shadow: 0 0 0;
+  margin: 0% 0;
+  border-radius: 00px;
+      }
+    </style>
+{% endblock content %}

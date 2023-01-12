@@ -1,0 +1,106 @@
+
+.search-input {
+  background: #fff;
+  width: 95%;
+  display: none;
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  position: relative;
+  z-index: 100;
+  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+  transition: display 1s ease;
+}
+.icon:hover {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+  font-size: var(--fs-lg);
+  cursor: pointer;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+#searcher:checked ~ .search-input{
+  display: block;
+}
+.search-input input {
+  height: 55px;
+  width: 95%;
+  outline: none;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  box-shadow: var(--shadow);
+}
+
+.search-input.active input {
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box {
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.autocom-box li {
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 95%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+.search-input.active .autocom-box li {
+  display: block;
+}
+
+.autocom-box li:hover {
+  background: #efefef;
+}
+
+.search-input .btns{
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  border:1px solid var(--border-color) ;
+  border-radius: 5px 5px 0 0;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 20px;
+  color: var(--main-color);
+  background-color: var(--bg-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+  .search-input input {
+    height: 40px;
+    
+  }
+  .search-input .btns {
+    width: 40px;
+    height: 40px;
+    top:0%;
+    right: 0px;
+  }
+  #i1, #i2 {
+    font-size: var(--fs-2xl);
+    padding:10px 0 10px;
+  }
+}

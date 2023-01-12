@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock title %}</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/aos.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/style-switcher.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/search.css' %}" />
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/main.js' %}">
+</script>
+<script src="{% static 'js/style-switcher.js' %}"></script>
+</head>
+<body onload="searchkeys()" >
+
+<div class="preloader">
+  <div class="load">
+    <hr><hr><hr><hr>
+  </div>
+</div>
+<div class="page-wrapper">
+<header class="header js-header">
+<div class="container" data-aos="fade-down" data-aos-duration="1000">
+<div class="logo">
+<a href="{% url 'home' %}">ERKATA <span>Cleaning Service</span></a>
+</div>
+<button type="button" class="nav-toggler js-nav-toggler" onclick="navigation()" >
+<span></span>
+</button>
+<nav class="nav js-nav">
+<ul>
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">about</a></li>
+<li><a href="{% url 'service' %}">service</a></li>
+<li><a href="{% url 'price' %}">price</a></li>
+<li><a href="{% url 'team' %}">team</a></li>
+<li><a href="{% url 'contact' %}">contact</a></li>
+<li>
+<label class="icon" for="searcher">
+  <i id="i1" class="fas fa-search"></i>
+  <i id="i2" class="fas fa-times hide"></i>
+  </label>
+  </li>
+</ul>
+<input type="checkbox" id="searcher" name="searcher" onclick="icons()" hidden>
+<div class="search-input">
+<form action="">
+<input type="text" name="search" id="search" placeholder="Type to search..">
+<div class="autocom-box" >
+<!-- here list are inserted from javascript -->
+</div>
+<div class="icon">
+<button Type="submit" class="btns"><i class="fas fa-arrow-right"></i></button>
+</div>
+</form>
+</div>
+</nav>
+</div>
+</header>
+</div>
+
+{% block content %}
+{% endblock content %}
+
+<section class="contact sub section-padding" id="contact">
+<div class="container">
+<div class="section-title">
+<span class="title" data-aos="fade-left" data-aos-duration="1000">Subscribe</span>
+<h2 class="sub-title" data-aos="fade-right" data-aos-duration="1000">Be a member</h2>
+</div>
+<div class="grid contact-grid">
+<div class="contact-info">
+<form action="" method="POST">
+  {% csrf_token %}
+<div class="input-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">
+<input type="text" name="name" class="input-control" placeholder="Full Name*" required>
+</div>
+<div class="input-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+<input type="text" name="email" class="input-control" placeholder="Email*" required>
+</div>
+<div class="input-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+<input type="tel" class="input-control" placeholder="Phone*" name="phone" required="">
+</div>
+</div>
+<div class="contact-form">
+<div class="input-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">
+<input type="text" name="city" class="input-control" placeholder="City*" required>
+</div>
+<div class="input-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+<select id="country" class="input-control" name="country" required>
+  </select>
+</div>
+<button type="submit" class="btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Send</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  var selectDrop = document.getElementById('country');
+
+  fetch('https://cuik-projects.github.io/country-list/countries.json').then(res => {
+    return res.json();
+  }).then(data => {
+    console.log(data);
+    let output = "";
+    
+    data.forEach(country => {
+     output += ` 
+     
+  <option value="${country.name}">${country.emoji} ${country.name}</option>`;
+
+    })
+    selectDrop.innerHTML = output;
+
+  }).catch(err => {
+    console.log(err);
+
+  })
+  
+});
+
+</script>
+
+<footer class="footer" data-aos="fade-up" data-aos-duration="1000">
+  <div class="info">
+  <div>
+<h4> <i class="fas fa-map-marker-alt"></i> Address</h4>
+<p>
+block3, sec-45, serita
+</p>
+</div>  
+<div>
+<h4><i class="fas fa-phone"></i> call us</h4>
+<a href="tel:#">
+093 383 398 ***
+</a>
+</div>
+<div>
+<h4><i class="fas fa-envelope"></i> Email us</h4>
+<a href="mailto:#">info@gmail.com</a>
+</div>
+  </div>
+<div class="contain">
+<h3>follow us</h3>
+<div class="social-links">
+<a href=""><i class="fab fa-twitter"></i></a>
+<a href=""><i class="fab fa-youtube"></i></a>
+<a href=""><i class="fab fa-instagram"></i></a>
+<a href=""><i class="fab fa-facebook-f"></i></a>
+</div>
+</div>
+© 2022 · ERKATA Cleaning, Inc. All rights reserved.
+</footer>
+<!-- style swither -->
+
+<div class="style-switcher js-style-switcher">
+<label  class="" for="darker"><span id="mode" class="moon"></span></label>
+<input type="checkbox" id="darker" name="darker" hidden>
+</div>
+<script>
+  window.onload = double();
+  window.onload = headerBg();
+  window.addEventListener('load', () => {
+    const preloader = document.querySelector(".preloader");
+    preloader.classList.add('fade-out');
+    
+    setTimeout(() => {
+      preloader.style.display = "none";
+      AOS.init();
+    }, 600);
+  
+});
+function icons() {
+  icon1 = document.getElementById("i1")
+  icon2 = document.getElementById("i2")
+  
+  icon1.classList.toggle("hide")
+  icon2.classList.toggle("hide")
+}
+
+</script>
+
+</body>
+</html>
