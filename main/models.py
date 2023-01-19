@@ -33,7 +33,7 @@ class subscriber(models.Model):
 class announcement(models.Model):
   id = models.AutoField(auto_created = True, primary_key = True, serialize = False, verbose_name ='ID')
   subject = models.CharField(max_length = 50)
-  message = models.CharField(max_length = 5000)
+  message = models.TextField(max_length = 5000)
   pub_date = models.DateField(default=now)
   
   def __str__(self):

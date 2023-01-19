@@ -3,15 +3,17 @@ from django.http import HttpResponse
 from .models import contacts, subscriber, announcement
 from .mail import mailall
 from django.contrib import messages
-from bs4 import BeautifulSoup
 import re, os
+#from . import clie
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+import threading
+from subprocess import call
+
 
 def home(request):
   suber = subscriber()
   announces = announcement.objects.all()
-  print(announces)
   if request.method == "POST":
     suber.username = request.POST.get('name')
     suber.email = request.POST.get('email')
@@ -74,7 +76,7 @@ def team(request):
     suber.postalcode = request.POST.get('postalcode')
     suber.save()
   return render(request, "team.html")
-  
+
 def contact(request):
   contact_form = contacts()
   if "Name" in request.POST:
@@ -87,7 +89,7 @@ def contact(request):
     
   return render(request, "contact.html")
   
-@login_required(login_url="/ER-admin/")
+@login_required(login_url="/admin/")
 def sendmail(request):
   sub = subscriber.objects.all()
   announce = announcement()
@@ -115,3 +117,4 @@ def sendmail(request):
       messages.error(request, "There is no subscriber to send!")
       return redirect("/sendmail/")
   return render(request, "mail.html")
+ 

@@ -656,6 +656,9 @@ button {
   left: 0;
   top: 20px;
 }
+.contact-info-item a {
+  cursor: pointer;
+}
 .contact-info-item h3 {
   margin: 0 0 10px;
   font-weight: 500;
@@ -703,12 +706,12 @@ select.input-control {
 .vid {
   width:100%;
   overflow: hidden;
-  padding: 3% 0;
+  padding: 0% 0;
   align-items: center;
 }
-.video video {
-  width:280px;
-  height: 180px;
+.video video, .iframe iframe {
+  width:100%;
+  height: 100%;
   border-radius: 10px;
 }
 .video {
@@ -738,6 +741,9 @@ select.input-control {
   margin: 0 0 15px;
   font-weight: 300;
   text-transform: capitalize;
+}
+.info a {
+  cursor: pointer;
 }
 .info p, .info a {
   font-size: var(--fs-md);
